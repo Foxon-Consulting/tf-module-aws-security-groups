@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  ansible_terraform:
+    image: ansible_terraform
+    ports:
+      - "2224:22"
+    volumes:
+      - ./:/home/user/tf-module-security-groups
+      - ~/Desktop/Dev/key:/home/user/key
+      - ~/.aws:/home/user/.aws
+    container_name: ansible_terraform_container_tf_module_security_groups
+    restart: unless-stopped
