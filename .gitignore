@@ -35,3 +35,7 @@ terraform.rc
 
 temp/
 .vscode/
+
+provider.tf
+
+.terraform.lock.hcl

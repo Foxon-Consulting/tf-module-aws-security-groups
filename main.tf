@@ -1,6 +1,15 @@
+locals {
+  # full_name = "${var.client}-${var.app}-${var.environment}"
+
+  ec2_sg_name = "${var.prefix}-ec2-sg"
+  rds_sg_name = "${var.prefix}-rds-sg"
+  efs_sg_name = "${var.prefix}-efs-sg"
+
+}
+
 // create security group for EC2 instances
 resource "aws_security_group" "ec2" {
-  name        = var.ec2_sg_name
+  name        = local.ec2_sg_name
   description = "public security group for EC2 instances"
   vpc_id      = var.vpc_id
   ingress {
@@ -34,17 +43,17 @@ resource "aws_security_group" "ec2" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"] // allow all traffic to anywhere
   }
-  tags = {
-    Name        = var.ec2_sg_name
-    client      = var.client_name
-    environment = var.environment
-  }
+  tags = merge(var.tags,
+    {
+      Name = local.ec2_sg_name
+    }
+  )
 }
 
 
 // create security group for RDS instances
 resource "aws_security_group" "rds" {
-  name        = var.rds_sg_name
+  name        = local.rds_sg_name
   description = "private security group for RDS instances"
   vpc_id      = var.vpc_id
 
@@ -61,17 +70,17 @@ resource "aws_security_group" "rds" {
     protocol        = "-1"
     security_groups = [aws_security_group.ec2.id] // allow all traffic to public security group
   }
-  tags = {
-    Name        = var.rds_sg_name
-    client      = var.client_name
-    environment = var.environment
-  }
+  tags = merge(var.tags,
+    {
+      Name = local.rds_sg_name
+    }
+  )
 }
 
 
 // create security group for EFS instances
 resource "aws_security_group" "efs" {
-  name        = var.efs_sg_name
+  name        = local.efs_sg_name
   description = "private security group for EFS instances"
   vpc_id      = var.vpc_id
   ingress {
@@ -87,9 +96,9 @@ resource "aws_security_group" "efs" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"] // allow all traffic to anywhere
   }
-  tags = {
-    Name        = var.efs_sg_name
-    client      = var.client_name
-    environment = var.environment
-  }
+  tags = merge(var.tags,
+    {
+      Name = local.efs_sg_name
+    }
+  )
 }

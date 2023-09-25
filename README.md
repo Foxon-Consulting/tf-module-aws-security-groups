@@ -11,7 +11,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.16.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.17.0 |
 
 ## Modules
 
@@ -29,18 +29,15 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_client_name"></a> [client\_name](#input\_client\_name) | Client Name | `string` | n/a | yes |
 | <a name="input_ec2_db_cidr_blocks"></a> [ec2\_db\_cidr\_blocks](#input\_ec2\_db\_cidr\_blocks) | Debug CIDR Blocks | `list(string)` | <pre>[<br>  "0.0.0.0/32"<br>]</pre> | no |
 | <a name="input_ec2_http_https_cidr_blocks"></a> [ec2\_http\_https\_cidr\_blocks](#input\_ec2\_http\_https\_cidr\_blocks) | HTTP and HTTPS CIDR Blocks | `list(string)` | <pre>[<br>  "0.0.0.0/32"<br>]</pre> | no |
-| <a name="input_ec2_sg_name"></a> [ec2\_sg\_name](#input\_ec2\_sg\_name) | EC2 Security Group Name | `string` | n/a | yes |
 | <a name="input_ec2_ssh_cidr_blocks"></a> [ec2\_ssh\_cidr\_blocks](#input\_ec2\_ssh\_cidr\_blocks) | SSH CIDR Blocks | `list(string)` | <pre>[<br>  "0.0.0.0/32"<br>]</pre> | no |
 | <a name="input_efs_debug_cidr_blocks"></a> [efs\_debug\_cidr\_blocks](#input\_efs\_debug\_cidr\_blocks) | Debug CIDR Blocks | `list(string)` | <pre>[<br>  "0.0.0.0/32"<br>]</pre> | no |
 | <a name="input_efs_port"></a> [efs\_port](#input\_efs\_port) | EFS Port | `number` | `2049` | no |
-| <a name="input_efs_sg_name"></a> [efs\_sg\_name](#input\_efs\_sg\_name) | EFS Security Group Name | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment | `string` | n/a | yes |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix for all resources | `string` | n/a | yes |
 | <a name="input_rds_debug_cidr_blocks"></a> [rds\_debug\_cidr\_blocks](#input\_rds\_debug\_cidr\_blocks) | Debug CIDR Blocks | `list(string)` | <pre>[<br>  "0.0.0.0/32"<br>]</pre> | no |
 | <a name="input_rds_port"></a> [rds\_port](#input\_rds\_port) | RDS Port | `number` | `3306` | no |
-| <a name="input_rds_sg_name"></a> [rds\_sg\_name](#input\_rds\_sg\_name) | EC2 Security Group Name | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | The common tags for all resources | `map(string)` | n/a | yes |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 
 ## Outputs

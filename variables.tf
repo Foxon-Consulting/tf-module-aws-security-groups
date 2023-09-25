@@ -1,20 +1,15 @@
+variable "prefix" {
+  description = "The prefix for all resources"
+  type        = string
+}
+
+variable "tags" {
+  description = "The common tags for all resources"
+  type        = map(string)
+}
+
 variable "vpc_id" {
   description = "VPC ID"
-  type        = string
-}
-
-variable "client_name" {
-  description = "Client Name"
-  type        = string
-}
-
-variable "environment" {
-  description = "Environment"
-  type        = string
-}
-
-variable "ec2_sg_name" {
-  description = "EC2 Security Group Name"
   type        = string
 }
 
@@ -36,11 +31,6 @@ variable "ec2_db_cidr_blocks" {
   default     = ["0.0.0.0/32"]
 }
 
-variable "rds_sg_name" {
-  description = "EC2 Security Group Name"
-  type        = string
-}
-
 variable "rds_debug_cidr_blocks" {
   description = "Debug CIDR Blocks"
   type        = list(string)
@@ -51,11 +41,6 @@ variable "rds_port" {
   description = "RDS Port"
   type        = number
   default     = 3306
-}
-
-variable "efs_sg_name" {
-  description = "EFS Security Group Name"
-  type        = string
 }
 
 variable "efs_debug_cidr_blocks" {
